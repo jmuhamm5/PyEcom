@@ -6,13 +6,24 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <p>{{ content }}</p>
-            <div class="col-sm-6 col-12">
-                <form action="" method="POST">{% csrf_token %}
-                    <input type="text" class="form-control" name="fullname" placeholder="Name" />
+
+            <div class="col-sm-6 col-12 offset-3 pt-4">
+                <p>{{ content }}</p>
+                <form action="" method="POST">{% csrf_token %} {{ form }}
                     <br/>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+                <br/>
+                <br/>
+                <!-- <form action="" method="POST">{% csrf_token %}
+                    <input type="text" class="form-control" name="fullname" placeholder="Name" />
+                    <br/>
+                    <input type="email" class="form-control" name="email" placeholder="Email" />
+                    <br/>
+                    <textarea class="form-control" name="content" id="" cols="41" rows="8" placeholder="Your content"></textarea>
+                    <br/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form> -->
             </div>
         </div>
     </div>
