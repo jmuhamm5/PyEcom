@@ -1,1 +1,10 @@
-{% extends 'base.html' %} {% block content %}{% endblock %}
+{% extends 'base.html' %} {% block content %}
+<div class="col-sm-6 col-12 offset-3 pt-4">
+    <form action="" method="POST">{% csrf_token %} {{ form }}
+        <br/>
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+</div>
+
+
+{% endblock %}
