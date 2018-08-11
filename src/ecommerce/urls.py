@@ -19,15 +19,24 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from products.views import ProductListView, product_list_view, ProductDetailView, product_detail_view
+from products.views import(
+    ProductListView, 
+    product_list_view, 
+    ProductDetailView, 
+    product_detail_view,
+    ProductFeaturedListView,
+    ProductFeaturedDetailView
+) 
 
 from .views import home_page, about_page, contact_page, login_page, register_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('featured/', ProductFeaturedListView.as_view()),
+    path('featured/<int:pk>', ProductFeaturedDetailView.as_view()),
     path('products/', ProductListView.as_view()),
-    path('products-fbv/', product_list_view),
     path('products/<int:pk>', ProductDetailView.as_view()),
+    path('products-fbv/', product_list_view),
     path('products-fbv/<int:pk>', product_detail_view),
     path('', home_page, name='home'),
     path('about/', about_page, name='about'),
