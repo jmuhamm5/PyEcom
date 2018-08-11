@@ -2,7 +2,9 @@
 <img src="{{ obj.image.url }}" class="img-fluid" height="150" width="200" />
 <br/>
 <br/>
-<h3>{{ obj.title }}</h3>
+<a href="{{ obj.get_absolute_url }}">
+    <h3>{{ obj.title }}</h3>
+</a>
 <br/>
 <br/>
 <br/> {% endfor %} {% endblock %}

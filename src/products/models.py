@@ -56,6 +56,8 @@ class Product(models.Model):
     
     objects = ProductManager()
 
+    def get_absolute_url(self):
+        return "/products/{slug}/".format(slug=self.slug)
         
     def __str__(self): # Python 3
         return self.title
