@@ -2,6 +2,7 @@ import random
 import os
 from django.db import models
 from django.db.models.signals import pre_save, post_save
+from django.urls import reverse
 
 from .utils import unique_slug_generator
 
@@ -53,11 +54,19 @@ class Product(models.Model):
     image           = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     featured        = models.BooleanField(default=False)
     active          = models.BooleanField(default=True)
+    timestamp       = models.DateTimeField(auto_now_add=True)
     
     objects = ProductManager()
 
+    def timestamp_pretty(self):
+        return self.timestamp.strftime('%b %e, %Y')
+
+    def summary(self):
+        return self.description[:100]
+
     def get_absolute_url(self):
-        return "/products/{slug}/".format(slug=self.slug)
+        #return "/products/{slug}/".format(slug=self.slug)
+        return reverse("products:detail", kwargs={"slug": self.slug})
         
     def __str__(self): # Python 3
         return self.title

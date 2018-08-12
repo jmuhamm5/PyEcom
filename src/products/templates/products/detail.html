@@ -1,9 +1,21 @@
 {% extends 'base.html' %} {% load staticfiles%} {% block content %}
 
-<h1>{{ object.title }}</h1>
-<br/>
-<br/> {% if object.image %}
-<img src="{{ object.image.url }}" class="img-fluid"> {% endif %}
-<br/>
-<br/>
-<p>{{ object.description }}</p> {% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{ object.title }}</h1>
+            <h3>{{ "some title here"|title }}</h3>
+            <h5>{{ object.timestamp|date }}</h5>
+            <!-- <h5>{{ object.timestamp_pretty }}</h5> -->
+            <!-- <h6>{{ object.timestamp|timesince }} ago</h6> -->
+            <br/>
+            <br/> {% if object.image %}
+            <img src="{{ object.image.url }}" class="img-fluid"> {% endif %}
+            <br/>
+            <br/>
+            <p>{{ object.description|linebreaks }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

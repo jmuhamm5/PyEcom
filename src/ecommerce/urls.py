@@ -36,7 +36,7 @@ urlpatterns = [
     # path('featured/', ProductFeaturedListView.as_view()),
     # path('featured/<int:pk>', ProductFeaturedDetailView.as_view()),
     # path('featured/<slug:slug>', ProductFeaturedDetailView.as_view()),
-    path('products/', include('products.urls')),
+    path('products/', include('products.urls', namespace='products')),
     #path('products/', ProductListView.as_view()),
     #path('products/<int:pk>', ProductDetailView.as_view()),
     #path('products/<slug:slug>', ProductDetailSlugView.as_view()),
