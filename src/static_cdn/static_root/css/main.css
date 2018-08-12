@@ -1,4 +1,11 @@
-body,
-footer {
+body {
+    color: black;
+}
+
+hr {
+    border: 0.25px solid black;
+}
+
+footer>.container {
     color: black;
 }
