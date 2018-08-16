@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tags.apps.TagsConfig',
     'search.apps.SearchConfig',
     'products.apps.ProductsConfig',
     'django.contrib.admin',
