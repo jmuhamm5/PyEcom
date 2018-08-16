@@ -19,7 +19,7 @@ class SearchProductListView(ListView):
         method_dict = request.GET
         query = method_dict.get('q', None) # mod_dict['q']
         if query is not None:
-            return Product.objects.filter(title__icontains=query)
+            return Product.objects.search(query)
         return Product.objects.featured()
 
         '''
