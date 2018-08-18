@@ -13,8 +13,6 @@ def get_filename_ext(filepath):
     return name, ext
 
 def upload_image_path(instance, filename):
-    #print(instance)
-    #print(filename)
     new_filename = random.randint(1, 803949358943)
     name, ext = get_filename_ext(filename)
     final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
@@ -45,11 +43,11 @@ class ProductManager(models.Manager):
     def all(self):
         return self.get_queryset().active()
     
-    def featured(self): # Product.objects.featured()
+    def featured(self): 
         return self.get_queryset().featured()
 
     def get_by_id(self, id):
-        qs = self.get_queryset().filter(id=id) # Product.objects == self.get_queryset()
+        qs = self.get_queryset().filter(id=id) 
         if qs.count() == 1:
             return qs.first()
         return None

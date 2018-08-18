@@ -49,6 +49,10 @@ class Cart(models.Model):
     def __unicode__(self): # Python 2
         return str(self.id)
 
+    @property
+    def name(self):
+        return self.title
+
 def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
     if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
         products = instance.products.all()  
