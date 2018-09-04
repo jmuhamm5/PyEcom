@@ -36,7 +36,7 @@ class Cart(models.Model):
     products    = models.ManyToManyField(Product, blank=True)
     total       = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     subtotal    = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
-    #tax    = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
+    #tax         = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     updated     = models.DateTimeField(auto_now=True)
     timestamp   = models.DateTimeField(auto_now_add=True)
 
@@ -55,13 +55,18 @@ class Cart(models.Model):
 def m2m_changed_cart_receiver(sender, instance, action, *args, **kwargs):
     if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
         products = instance.products.all()  
+        #subtotal = 0
         total = 0
         #tax = 0
         for x in products:
-            total += x.price
-            #tax = total * 0.10
-        if instance.subtotal != total:
-            instance.subtotal = total #+ tax
+            #subtotal += x.price
+            total += x.price            #comment out line
+            #tax = subtotal * 0.10
+        #if instance.total != subtotal:
+        #   instance.total = subtotal + tax
+        #   instance.save()
+        if instance.subtotal != total:  #comment out block
+            instance.subtotal = total
             instance.save()
    
 
@@ -69,6 +74,7 @@ m2m_changed.connect(m2m_changed_cart_receiver, sender=Cart.products.through)
 
 def pre_save_cart_receiver(sender, instance, *args, **kwargs):
     if instance.subtotal > 0:
+        #instance.total = instance.subtotal + instance.tax
         instance.total = instance.subtotal + 10
     else:
         instance.total = 0.00
