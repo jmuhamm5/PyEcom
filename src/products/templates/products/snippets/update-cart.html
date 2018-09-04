@@ -2,6 +2,12 @@
     {% csrf_token %}
     <!-- Hidden Form Related to Product Id-->
     <input type="hidden" name="product_id" value="{{ product.id }}" />
+    <!--  -->
+    {% if in_cart %}
+    <!-- Remove from Cart -->
+    <button type="submit" class="btn btn-danger btn-sm" style="padding:0px;cursor: pointer;">Remove</button>
+    <!--  -->
+    {% else %}
     <!-- Cart Button Logic -->
     {% if product in cart.products.all %}
     <!-- Remove from Cart -->
@@ -9,5 +15,9 @@
     <!-- Alt cond. -->
     {% else %}
     <!-- Add to Cart -->
-    <button type="submit" class="btn btn-success">Add to Cart</button> {% endif %}
+    <button type="submit" class="btn btn-success">Add to Cart</button>
+    <!--  -->
+    {% endif %}
+    <!--  -->
+    {% endif %}
 </form>
