@@ -48,9 +48,6 @@
             </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto pl-5">
-                        <li class="nav-item {% if request.path == product_list_url %}active{% endif %}">
-                            <a class="nav-link" href="{{ product_list_url }}">Products</a>
-                        </li>
                         <!-- <li class="nav-item {% if request.path == home_url %}active{% endif %}">
                         <a class="nav-link" href="{{ home_url }}">Home</a>
                     </li> -->
@@ -59,6 +56,9 @@
                         </li>
                         <li class="nav-item {% if request.path == about_url %}active{% endif %}">
                             <a class="nav-link" href="{{ about_url }}">About</a>
+                        </li>
+                        <li class="nav-item {% if request.path == product_list_url %}active{% endif %}">
+                            <a class="nav-link" href="{{ product_list_url }}">Products</a>
                         </li>
 
                         {% if request.user.is_authenticated %}

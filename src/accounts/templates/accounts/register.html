@@ -3,7 +3,9 @@
 
 <div class="col-sm-6 col-12 offset-3 pt-4">
     <h1>Register</h1>
-    <form action="" method="POST">{% csrf_token %} {{ form }}
+    <form action="" method="POST">{% csrf_token %}
+        <!--  -->
+        {{ form }}
         <br/>
         <button type="submit" class="btn btn-success">Register</button>
     </form>

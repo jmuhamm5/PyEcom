@@ -1,8 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container offset-2 pt-5" style="margin:6em 0 9em 11em;">
+<div class="col-sm-6 col-12 offset-3 pt-4">
     <h1>Login</h1>
-    <form action="" method="POST">{% csrf_token %} {{ form }}
+    <form action="" method="POST">{% csrf_token %}
+        <!--  -->
+        {{ form }}
+        <br/>
         <button type="submit" class="btn btn-primary ml-1">Login</button>
     </form>
 </div>

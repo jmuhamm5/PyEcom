@@ -5,7 +5,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from accounts.views import login_page, register_page
+from accounts.views import login_page, register_page, guest_register_view
 from .views import home_page, about_page, contact_page
 
 urlpatterns = [
@@ -16,6 +16,7 @@ urlpatterns = [
     path('', home_page, name='home'),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
+    path('register/guest/', guest_register_view, name='guest_register'),
     path('login/', login_page, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register_page, name='register')
