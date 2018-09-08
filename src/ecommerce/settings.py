@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # custom apps
+    'addresses.apps.AddressesConfig',
     'billing.apps.BillingConfig',
     'accounts.apps.AccountsConfig',
     'orders.apps.OrdersConfig',
